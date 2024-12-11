@@ -44,11 +44,11 @@ kaggle datasets download -d kieranpoc/steam-reviews – downloading the kaggle d
 
 ### Visualizations
 
-![alt text](docs/assets/Barplot.png) 
+![logo](docs/assets/Barplot.png) 
 
 - This bar plot helps demonstrate the top 10 games by their average sentiment scores. The x-axis contains the average sentiment scores, while the y-axis has the name of the games. Although this only shows the top 10 games from a sample of the dataframe, it does highlight which games have the highest overall positive sentiment, which can help provide insight into games that are well-received by users, as well as encourage further study into the characteristics of the top games.
 
-![logo]: docs/assets/distribution_avg_sentiment_scores.png 
+![logo](docs/assets/distribution_avg_sentiment_scores.png) 
 
 - This histogram displays the distribution of the average sentiment scores across the sampled games in the dataframe. The x-axis here is once again the average sentiment scores, while the y-axis has the frequencies of games within the range of the scores. Overall, this visualization helps convey how the sentiment for the games is distributed whether it be positive, neutral, or negative.
 
@@ -60,17 +60,17 @@ kaggle datasets download -d kieranpoc/steam-reviews – downloading the kaggle d
 
 - The heatmap here shows the correlation between the key numeric features in the dataframe. In this instance, they were the average sentiment score, days since last played, number of reviews by the author, the lifetime playtime of the author, as well as the total votes. This could help with gaining insight into which features are strongly correlated with each other. For example, the average lifetime playtime is relatively correlated to the days since that last played the game. However, for the most part, it can be seen that the rest are rather negatively correlated, which could mean that there are other independent factors influencing the sentiment of the reviews.
 
-![logo]: docs/assets/stacked_bar_reviews_top10.png 
+![logo](docs/assets/stacked_bar_reviews_top10.png)
 
 - This stacked bar plot is useful for visualizing the proportion of positive and negative reviews for the top 10 games sampled from the dataframe. As made clear by the legend, the green bar represents the positive reviews, while the red represents the negative. The reviews for these games are positive overall, which means that these games are well-received by their players.
 
-![logo]: docs/assets/ConfusionMatrix.png 
+![logo](docs/assets/ConfusionMatrix.png)
 
 - This confusion matrix demonstrates how the logistics regression model predicted the ‘voted_up’ feature. With this, I can tell that the model has 7.2 million TPs (true positives) and 213.3 thousand TNs (true negatives), which are the numbers of positive and negative reviews the model predicted correctly, as well as 798.9 thousand FPs (false positives) and 123.8 thousand FN’s (false negatives), which represent the numbers positive and negative reviews that were incorrectly predicted. Knowing this information allows me to obtain metrics such as accuracy, f1-score, recall, precision, etc, which further provides valuable insights into the model’s performance. 
 
-![logo]: docs/assets/ROCCurve.png 
+![logo](docs/assets/ROCCurve.png)
 
-![logo]: docs/assets/BestParams.png 
+![logo](docs/assets/BestParams.png) 
 
 - The ROC curve displayed here suggests that the model performs well when it comes to distinguishing between positive and negative reviews. The red dotted line represents a random classifier, while the blue curve shows how the true positive rate varies with the false positive rate/ the trade-off between them. When combined with an AUC of approximately 0.83958, it means that if the model was given a positive and negative review, it would correctly predict or rank the review as positive higher than the negative around 83.96% of the time. Additionally, the grid search identified elasticNetParam and regParam (equalling 0 and 1 respectively) as the best parameters for the model. The elasticNetParam of 1 specifies pure L1 regularization, which typically encourages sparsity by shrinking some feature weights to zero. However, since regParam was 0, this meant that no regularization was actually applied, which indicates that the model performed best without any regularization, thus relying entirely on the data and features without penalizing the coefficients. Therefore, this suggests that the dataset and features were well-suited for logistic regression without overfitting concerns.
   
