@@ -9,7 +9,7 @@
 ### Project 1 - Steam Reviews Logistic Regression Model
 - Built a logistic regression model on Google Cloud Platform for the 100+ Million Steam Reviews Dataset on Kaggle
 - Predicted the sentiment of around 8.6 million game reviews for the top 300 Steam games
-- Performed feature engineering, data cleaning, modeling, and produced visualizations for the model
+- Performed feature engineering, data cleaning, modeling, and produced visualizations through Jupytr Notebook on a Dataproc Cluster 
 - Achieved an AUC of .8396, meaning the model could correctly predict true positives over true negatives ~84% of the time
   
 - Link: [Github Repository](
