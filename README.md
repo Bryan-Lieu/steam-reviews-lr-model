@@ -12,28 +12,28 @@ Overall, using this data set for my ML project enables me to fulfill my interest
 ### Data Acquisition
 The first step to building the model was to extract the necessary data that I would eventually be working with and store it in my virtual machine. Through the Google Cloud platform, I was able to do this by initially using an instance to download the Kaggle data set into the virtual machine and not the one being used locally. Command lines that were used to execute this were:
   
-- mkdir kaggle – to create a Kaggle directory
-- mv kaggle.json .kaggle/ – to move the downloaded & uploaded kaggle API token to the Kaggle directory
-- chmod 600 .kaggle/kaggle.json – to secure the moved file
+- **mkdir kaggle** – to create a Kaggle directory
+- **mv kaggle.json .kaggle/** – to move the downloaded & uploaded kaggle API token to the Kaggle directory
+- **chmod 600 .kaggle/kaggle.json** – to secure the moved file
 
 Moreover, a Python environment required being set up, as it would allow me to utilize some of Kaggle’s tools to download the data from Kaggle onto the virtual machine. Those additional command lines included:
 
-- sudo apt -y install python3-pip python3.11-venv – to install python and the python virtual environment
-- python3 -m venv pythondev – creating the virtual environment and calling it ‘pythondev’
-- cd pythondev – to change to the python directory
-- source bin/activate – activating the virtual environment
-- pip3 install kaggle – installing the necessary kaggle tools
-kaggle datasets download -d kieranpoc/steam-reviews – downloading the kaggle dataset
-- sudo apt install zip – installing the zip tool to unzip the downloaded contents
-- unzip  -1 steam-reviews.zip – to show how many files are in the zip file to be unzipped
-- unzip steam-reviews.zip — to unzip the downloaded dataset file
+- **sudo apt -y install python3-pip python3.11-venv** – to install python and the python virtual environment
+- **python3 -m venv pythondev** – creating the virtual environment and calling it ‘pythondev’
+- **cd pythondev** – to change to the python directory
+- **source bin/activate** – activating the virtual environment
+- **pip3 install kaggle** – installing the necessary kaggle tools
+- **kaggle datasets download -d kieranpoc/steam-reviews** – downloading the kaggle dataset
+- **sudo apt install zip** – installing the zip tool to unzip the downloaded contents
+- **unzip  -1 steam-reviews.zip** – to show how many files are in the zip file to be unzipped
+- **unzip steam-reviews.zip** — to unzip the downloaded dataset file
 
 After the contents of the downloaded dataset file were unzipped, there were two CSV files present: all_reviews.csv and weighted_score_above_08.csv. However, the most relevant one was all_reviews.csv. Thus, the following command lines were needed to copy and upload the CSV file to a newly created Google Cloud bucket:
   
-- gcloud auth login – to authorize using gcloud commands to the virtual machine
-- gcloud storage buckets create g://my-bigdata-project-bl –project=reviewed-steam-games –default-storage-class=STANDARD –location=uscentral1 –uniform-bucket-level-access – to create the bucket for the file to be copied to
-- gcloud storage cp all_reviews/all_reviews.csv gs://my-bigdata-project-bl/landing/ – to copy/upload the CSV filed to a folder called ‘landing’ in the created bucket
-- gcloud storage ls -l gs://my-bigdata-project-bl/landing/all_reviews.csv – to check if the file was successfully copied and specifically how much space it is taking up
+- **gcloud auth login** – to authorize using gcloud commands to the virtual machine
+- **gcloud storage buckets create g://my-bigdata-project-bl –project=reviewed-steam-games –default-storage-class=STANDARD –location=uscentral1 –uniform-bucket-level-access** – to create the bucket for the file to be copied to
+- **gcloud storage cp all_reviews/all_reviews.csv gs://my-bigdata-project-bl/landing/** – to copy/upload the CSV filed to a folder called ‘landing’ in the created bucket
+- **gcloud storage ls -l gs://my-bigdata-project-bl/landing/all_reviews.csv** – to check if the file was successfully copied and specifically how much space it is taking up
 
 ### Exploratory Data Analysis
 
